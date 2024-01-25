@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <title>Portpoilo</title>
+</head>
+
+ <body style = background-color:#e6e6fa;>
+    
+    <div class="container">
+        <h2 style="text-align: center;"> Portpoilo </h2>
+        <div class="carousel" >
+            <div class="cell"><img src='01.png' /></div>
+            <div class="cell"><img src='02.png' /></div>
+            <div class="cell"><img src='03.png' /></div>
+            <div class="cell"><img src='04.png' /></div>
+            <div class="cell"><img src='05.png' /></div>
+            <div class="cell"><img src='06.png' /></div>
+            <div class="cell"><img src='07.png' /></div>
+            <div class="cell"><img src='08.png' /></div>
+            <div class="cell"><img src='09.png' /></div>
+            <div class="cell"><img src='10.png' /></div>
+            <div class="cell"><img src='11.png' /></div>
+            <div class="cell"><img src='12.png' /></div>
+            <div class="cell"><img src='13.png' /></div>
+            <div class="cell"><img src='14.png' /></div>
+            <div class="cell"><img src='15.png' /></div>
+            <div class="cell"><img src='16.png' /></div>
+            <div class="cell"><img src='17.png' /></div>
+            <div class="cell"><img src='18.png' /></div>
+        </div>
+        <div class="left-button" onclick="left()"><span class="material-symbols-outlined">
+            arrow_back
+            </span></div>
+        <div class="right-button" onclick="right()"><span class="material-symbols-outlined">
+            arrow_forward
+            </span></div>
+    </div>
+
+    <script>
+        const CAROUSEL_LENGTH = document.querySelectorAll(".cell").length;
+        let current = 0;
+
+        const $carousel = document.querySelector(".carousel");
+
+        function right() {
+            if (current !== CAROUSEL_LENGTH - 1) {
+                current++;
+            } else {
+                current = 0;
+            }
+            moveCarousel();
+        }
+
+        function left() {
+            if (current !== 0) {
+                current--;
+            } else {
+                current = CAROUSEL_LENGTH - 1;
+            }
+            moveCarousel();
+        }
+
+        function moveCarousel() {
+            const slideWidth = document.querySelector('.cell').offsetWidth;
+            $carousel.style.transform = `translateX(-${current * slideWidth}px)`;
+        }
+
+        //자동 슬라이드
+        setInterval(() => {
+        right();
+    }, 3500);
+    </script>
+</body>
+
+<style>
+
+img {
+    width: 1000px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.container {
+    margin: auto;
+    width: 1000px;
+    height: 700px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* 슬라이드 이동 시 부드럽게 이동하도록 설정 */
+        }
+
+        .cell {
+            flex: 0 0 370px;
+        }
+
+        .left-button,
+        .right-button {
+            cursor: pointer;
+            margin-top: 20px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+            display: inline-block;
+            position: absolute; 
+           
+}
+
+.left-button {
+    
+   
+    left: 40%;
+}
+
+.right-button {
+    right: 40%; 
+    
+}
+    </style>
+</html>
