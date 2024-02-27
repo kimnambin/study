@@ -31,4 +31,3 @@ function solution2(num1,num2){
 function soltuion3(array){
     return array.sort((a,b) => a-b)[map.floor(array.length/2)];
 }
-
